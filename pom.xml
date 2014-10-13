@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.test</groupId>
+	<artifactId>test-1</artifactId>
+	<version>1.0</version>
+	<name>git-test</name>
+	<description>for testing git</description>
+	<repositories>
+		<repository>
+			<id>cloudera</id>
+			<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+		</repository>
+	</repositories>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<hadoop-core>2.0.0-mr1-cdh4.7.0</hadoop-core>
+		<hadoop-hdfs>2.0.0-cdh4.7.0</hadoop-hdfs>
+		<hadoop-auth>2.0.0-cdh4.7.0</hadoop-auth>
+		<hadoop-common>2.0.0-cdh4.7.0</hadoop-common>
+		<hadoop-test>2.0.0-mr1-cdh4.7.0</hadoop-test>
+		<hadoop-minicluster>2.0.0-mr1-cdh4.7.0</hadoop-minicluster>
+		<commons-lang>2.5</commons-lang>
+		<protobuf>2.4.1</protobuf>
+		<junit>4.10</junit>
+		<maven-pmd-plugin>2.5</maven-pmd-plugin>
+		<jdk>1.6</jdk>
+	</properties>
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>${hadoop-core}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>${hadoop-hdfs}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-auth</artifactId>
+			<version>${hadoop-auth}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>${hadoop-common}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-test</artifactId>
+			<version>${hadoop-test}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-minicluster</artifactId>
+			<version>${hadoop-minicluster}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>${protobuf}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit}</version>
+		</dependency>
+		<!-- <dependency> -->
+<!-- 		<groupId>jdk.tools</groupId> -->
+<!-- 		<artifactId>jdk.tools</artifactId> -->
+<!-- 		<version>1.6.0_45</version> -->
+<!-- 		<scope>system</scope> -->
+<!-- 		<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath> -->
+		<!-- </dependency> -->
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${maven-pmd-plugin}</version>
+				<configuration>
+					<targetJdk>${jdk}</targetJdk>
+					<failOnViolation>true</failOnViolation>
+					<failurePriority>5</failurePriority>
+					<rulesets>
+						<ruleset>${pom.basedir}/pmd-rulesets.xml</ruleset>
+					</rulesets>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<!-- <goal>check</goal> -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
