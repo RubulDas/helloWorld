@@ -14,11 +14,7 @@ import org.apache.hadoop.mapreduce.Reducer;
  * 
  */
 public class BasicWordCount {
-	/**
-	 * 
-	 * @author
-	 * 
-	 */
+
 	public static class TokenizerMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
 
